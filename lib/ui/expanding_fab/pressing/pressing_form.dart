@@ -7,10 +7,10 @@ import 'package:go_router/go_router.dart';
 class PressingForm extends ConsumerStatefulWidget {
   const PressingForm({Key? key}) : super(key: key);
   @override
-  _PressingFormState createState() => _PressingFormState();
+  PressingFormState createState() => PressingFormState();
 }
 
-class _PressingFormState extends ConsumerState<PressingForm> {
+class PressingFormState extends ConsumerState<PressingForm> {
   // Declare a variable for the number input controller
   late TextEditingController _numberController;
   late TextEditingController _powdersIdController;
@@ -78,14 +78,14 @@ class _PressingFormState extends ConsumerState<PressingForm> {
                   decoration: InputDecoration(
                       labelText: 'QR Code',
                       hintText: 'Please scan QR Code from the powders',
-                      border: OutlineInputBorder(
+                      border: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(20)),
                       ),
                       prefixIcon: IconButton(
                         onPressed: () {
                           //todo
                         },
-                        icon: Icon(Icons.photo_camera),
+                        icon: const Icon(Icons.photo_camera),
                         color: Colors.black,
                       )),
                   validator: (String? value) {

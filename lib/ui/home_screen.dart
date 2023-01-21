@@ -2,7 +2,6 @@ import 'package:boost_ballistics/providers/states/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:boost_ballistics/ui/expanding_fab/pressing/pressing_form.dart';
 import 'package:boost_ballistics/ui/expanding_fab/action_button.dart';
 import 'package:boost_ballistics/ui/expanding_fab/expanding_fab.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -114,21 +113,23 @@ class _HomeState extends ConsumerState<HomeScreen> {
           ),
           endDrawer: Drawer(
               child: Scaffold(
-                appBar: AppBar(
+                  appBar: AppBar(
                     automaticallyImplyLeading: false,
-                    actions: [IconButton( icon: const Icon(Icons.close),
-                      onPressed: _closeEndDrawer,
-                    )],
-
-                ),
-
-                  body: Center(child: ElevatedButton(
-            child: const Text('Sign Out'),
-            onPressed: () {
-              context.go('/login');
-              ref.read(loginControllerProvider.notifier).signOut();
-            },
-          )))),
+                    actions: [
+                      IconButton(
+                        icon: const Icon(Icons.close),
+                        onPressed: _closeEndDrawer,
+                      )
+                    ],
+                  ),
+                  body: Center(
+                      child: ElevatedButton(
+                    child: const Text('Sign Out'),
+                    onPressed: () {
+                      context.go('/login');
+                      ref.read(loginControllerProvider.notifier).signOut();
+                    },
+                  )))),
           body: const Center(child: Text("Hello world!")),
           bottomNavigationBar: BottomNavigationBar(
             items: const <BottomNavigationBarItem>[

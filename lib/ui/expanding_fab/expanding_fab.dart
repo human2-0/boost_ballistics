@@ -10,10 +10,10 @@ class ExpandableFab extends StatefulWidget {
   final double distance;
 
   @override
-  _ExpandableFabState createState() => _ExpandableFabState();
+  ExpandableFabState createState() => ExpandableFabState();
 }
 
-class _ExpandableFabState extends State<ExpandableFab>
+class ExpandableFabState extends State<ExpandableFab>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _expandAnimation;
@@ -94,7 +94,7 @@ class _ExpandableFabState extends State<ExpandableFab>
       duration: const Duration(milliseconds: 250),
       transformAlignment: Alignment.center,
       transform:
-      Matrix4.diagonal3Values(_open ? 0.7 : 1.0, _open ? 0.7 : 1.0, 1.0),
+          Matrix4.diagonal3Values(_open ? 0.7 : 1.0, _open ? 0.7 : 1.0, 1.0),
       curve: Curves.easeOut,
       child: AnimatedOpacity(
         opacity: _open ? 0.0 : 1.0,
@@ -114,8 +114,8 @@ class _ExpandableFabState extends State<ExpandableFab>
     final step = 90.0 / (count - 1);
 
     for (var i = 0, angleInDegrees = 0.0;
-    i < count;
-    i++, angleInDegrees += step) {
+        i < count;
+        i++, angleInDegrees += step) {
       children.add(_ExpandableFab(
           directionDegrees: angleInDegrees,
           maxDistance: widget.distance,
@@ -130,10 +130,10 @@ class _ExpandableFabState extends State<ExpandableFab>
 class _ExpandableFab extends StatelessWidget {
   const _ExpandableFab(
       {Key? key,
-        required this.directionDegrees,
-        required this.maxDistance,
-        required this.progress,
-        required this.child})
+      required this.directionDegrees,
+      required this.maxDistance,
+      required this.progress,
+      required this.child})
       : super(key: key);
 
   final double directionDegrees;

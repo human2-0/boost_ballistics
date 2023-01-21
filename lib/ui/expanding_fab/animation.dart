@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class My extends StatefulWidget {
+  const My({super.key});
+
   @override
-  _MyState createState() => _MyState();
+  MyState createState() => MyState();
 }
 
-class _MyState extends State<My> with SingleTickerProviderStateMixin {
+class MyState extends State<My> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
 

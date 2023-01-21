@@ -2,15 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-
 class Pressing extends ConsumerStatefulWidget {
   const Pressing({Key? key}) : super(key: key);
 
   @override
-  _PressingState createState() => _PressingState();
+  PressingState createState() => PressingState();
 }
 
-class _PressingState extends ConsumerState<Pressing> {
+class PressingState extends ConsumerState<Pressing> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -19,7 +18,7 @@ class _PressingState extends ConsumerState<Pressing> {
     });
   }
 
-  static List<Widget> _widgetOptions = const <Widget>[
+  static const List<Widget> _widgetOptions = <Widget>[
     Text(
       'Index 0: Home',
     ),
@@ -33,7 +32,7 @@ class _PressingState extends ConsumerState<Pressing> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
+        actions: const [
           // your actions here
         ],
         leading: IconButton(
@@ -41,13 +40,9 @@ class _PressingState extends ConsumerState<Pressing> {
               context.go('/');
             },
             icon: const Icon(Icons.home_outlined)),
-        backgroundColor: Theme
-            .of(context)
-            .primaryColor,
+        backgroundColor: Theme.of(context).primaryColor,
         iconTheme: IconThemeData(
-          color: Theme
-              .of(context)
-              .secondaryHeaderColor,
+          color: Theme.of(context).secondaryHeaderColor,
         ),
         title: const Text('Boost Pressing'),
       ),
@@ -56,33 +51,31 @@ class _PressingState extends ConsumerState<Pressing> {
       ),
       bottomNavigationBar: BottomAppBar(
         child: Padding(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               OutlinedButton.icon(
                 onPressed: () {},
-                icon: Icon(Icons.home, color: Colors.black),
-                label: SizedBox.shrink(),
-
-
+                icon: const Icon(Icons.home, color: Colors.black),
+                label: const SizedBox.shrink(),
               ),
               OutlinedButton.icon(
                 onPressed: () {},
-                icon: Icon(Icons.search, color: Colors.black),
-                label: SizedBox.shrink(),
+                icon: const Icon(Icons.search, color: Colors.black),
+                label: const SizedBox.shrink(),
               ),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
               OutlinedButton.icon(
                 onPressed: () {},
-                icon: Icon(Icons.account_circle, color: Colors.black),
-                label: SizedBox.shrink(),
+                icon: const Icon(Icons.account_circle, color: Colors.black),
+                label: const SizedBox.shrink(),
               ),
               OutlinedButton.icon(
                 onPressed: () {},
-                icon: Icon(Icons.settings, color: Colors.black),
-                label: SizedBox.shrink(),
+                icon: const Icon(Icons.settings, color: Colors.black),
+                label: const SizedBox.shrink(),
               ),
             ],
           ),
@@ -96,9 +89,5 @@ class _PressingState extends ConsumerState<Pressing> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
-
   }
-
 }
-
-
